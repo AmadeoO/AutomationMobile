@@ -4,12 +4,11 @@ pipeline {
     stage('Build') {
       steps {
         powershell 'mvn clean install'
-        powershell 'dir'
       }
     }
     stage('Test') {
       steps {
-        powershell 'mvn test'
+        powershell 'mvn test -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/main/resources/Suite.xml'
       }
     }
   }
