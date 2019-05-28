@@ -4,6 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         powershell 'mvn clean install'
+        powershell 'dir'
       }
     }
     stage('Test') {
